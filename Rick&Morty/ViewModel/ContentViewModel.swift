@@ -9,6 +9,8 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
 
-    @Published var showCharacterListScreen = false
+//    @Published var showCharacterListScreen = false
+    @Published var selectedCharracter: Int? = nil
+
     
 }

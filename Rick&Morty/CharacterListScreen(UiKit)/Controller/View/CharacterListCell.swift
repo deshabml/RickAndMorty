@@ -11,9 +11,16 @@ class CharacterListCell: UICollectionViewCell {
 
     static let reuseID = "CharacterListCell"
 
+    lazy var avatarImageView: UIImageView = {
+        let avatarImageView = UIImageView(image: UIImage(systemName: "person.fill"))
+        avatarImageView.layer.cornerRadius = 16
+        return avatarImageView
+    }()
+
     let nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Имя Фамилия"
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
         return nameLabel
     }()
 
@@ -30,11 +37,16 @@ class CharacterListCell: UICollectionViewCell {
 
     func setConstraints() {
         addSubview(nameLabel)
+        addSubview(avatarImageView)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 140),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 140),
+            nameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 8),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     

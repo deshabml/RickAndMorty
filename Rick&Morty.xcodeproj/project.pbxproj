@@ -19,7 +19,6 @@
 		DD1E2FB92A8E81340072FB9A /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FB82A8E81340072FB9A /* CharacterListView.swift */; };
 		DD1E2FBB2A8E825C0072FB9A /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FBA2A8E825C0072FB9A /* CharacterListCell.swift */; };
 		DD1E2FBF2A8E91B10072FB9A /* CharacterListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FBE2A8E91B10072FB9A /* CharacterListScreenView.swift */; };
-		DD1E2FC12A8E97620072FB9A /* CollectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FC02A8E97620072FB9A /* CollectionLayoutManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		DD1E2FB82A8E81340072FB9A /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		DD1E2FBA2A8E825C0072FB9A /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
 		DD1E2FBE2A8E91B10072FB9A /* CharacterListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListScreenView.swift; sourceTree = "<group>"; };
-		DD1E2FC02A8E97620072FB9A /* CollectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayoutManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +153,6 @@
 			children = (
 				DD1E2FB82A8E81340072FB9A /* CharacterListView.swift */,
 				DD1E2FBA2A8E825C0072FB9A /* CharacterListCell.swift */,
-				DD1E2FC02A8E97620072FB9A /* CollectionLayoutManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,7 +229,6 @@
 			files = (
 				DD1E2FBB2A8E825C0072FB9A /* CharacterListCell.swift in Sources */,
 				DD1E2F962A8D70FD0072FB9A /* ContentView.swift in Sources */,
-				DD1E2FC12A8E97620072FB9A /* CollectionLayoutManager.swift in Sources */,
 				DD1E2FA92A8D80B80072FB9A /* URLManager.swift in Sources */,
 				DD1E2FA72A8D80530072FB9A /* NetworkService.swift in Sources */,
 				DD1E2FBF2A8E91B10072FB9A /* CharacterListScreenView.swift in Sources */,

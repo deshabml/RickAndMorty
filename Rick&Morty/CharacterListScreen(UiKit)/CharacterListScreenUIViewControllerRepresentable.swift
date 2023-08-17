@@ -11,17 +11,12 @@ struct CharacterListScreenUIViewControllerRepresentable: UIViewControllerReprese
 
     @EnvironmentObject private var mainViewModel: ContentViewModel
 
-    let labelText: String
-
     func makeUIViewController(context: Context) -> some UIViewController {
         let vc = CharacterListScreenViewController()
-//        vc.labelText = labelText
         vc.setupVC(mainViewModel)
         return vc
     }
 
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
 
 }

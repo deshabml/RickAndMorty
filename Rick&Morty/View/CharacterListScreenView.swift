@@ -13,14 +13,12 @@ struct CharacterListScreenView: View {
 
     var body: some View {
         VStack {
-            CharacterListScreenUIViewControllerRepresentable(labelText: "New Text Hear")
+            CharacterListScreenUIViewControllerRepresentable()
                 .environmentObject(mainViewModel)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AccentColor"))
         .ignoresSafeArea()
-//        .navigationBarTitleDisplayMode(.large)
-//        .navigationTitle("Characters")
     }
 
 }

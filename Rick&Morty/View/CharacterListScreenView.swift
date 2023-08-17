@@ -19,7 +19,8 @@ struct CharacterListScreenView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AccentColor"))
         .ignoresSafeArea()
-        .navigationTitle("Characters")
+//        .navigationBarTitleDisplayMode(.large)
+//        .navigationTitle("Characters")
     }
 
 }

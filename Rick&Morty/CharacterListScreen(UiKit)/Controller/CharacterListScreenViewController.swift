@@ -33,6 +33,14 @@ class CharacterListScreenViewController: UIViewController {
 //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
 
+//    private func navigationBarSetting() {
+//        let navBarAppearance = UINavigationBarAppearance()
+//        title = "Characters"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+////        navigationController?.navigationBar.standardAppearance = navBarAppearance
+////        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+//    }
+
     @objc func buttonAction() {
         mainViewModel?.showCharacterListScreen.toggle()
     }
@@ -57,6 +65,15 @@ extension CharacterListScreenViewController: UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterListCell.reuseID, for: indexPath) as! CharacterListCell
 //        cell.nameLabel.text = contacts[indexPath.item].name
         return cell
+    }
+
+}
+
+extension CharacterListScreenViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: (UIScreen.main.bounds.width - 42) / 2, height: 202)
+        return CGSize(width: 156, height: 202)
     }
 
 }

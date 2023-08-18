@@ -29,9 +29,14 @@ class URLManager {
 
 
 enum Server: String {
+
     case prod = "rickandmortyapi.com/api"
+    
 }
 
 enum EndPoint: String {
+
     case character = "/character"
+    case location = "/location"
+
 }

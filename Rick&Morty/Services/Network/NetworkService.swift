@@ -60,6 +60,29 @@ class NetworkService {
         task.resume()
     }
 
+    func getOrigin(urlString: String, completion: @escaping (Result<Origin, Error>) -> ()) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.badUrl))
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+            guard let origin = ParsingService.shared.origin(from: data) else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+                completion(.success(origin))
+        }
+        task.resume()
+    }
+
     func downloadImage(urlString: String, completion: @escaping (Result<UIImage, Error>) -> ()) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.badUrl))

@@ -28,6 +28,7 @@
 		DD1E2FD32A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FD22A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift */; };
 		DD1E2FD62A8F6EBD0072FB9A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FD52A8F6EBD0072FB9A /* ActivityIndicator.swift */; };
 		DD1E2FD92A8F6F3C0072FB9A /* ActivityIndicatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FD82A8F6F3C0072FB9A /* ActivityIndicatorViewModel.swift */; };
+		DDA7D4512A8F9AC100B906AE /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7D4502A8F9AC100B906AE /* Origin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		DD1E2FD22A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterScreenViewModel.swift; sourceTree = "<group>"; };
 		DD1E2FD52A8F6EBD0072FB9A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		DD1E2FD82A8F6F3C0072FB9A /* ActivityIndicatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewModel.swift; sourceTree = "<group>"; };
+		DDA7D4502A8F9AC100B906AE /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				DD1E2FC32A8EB6FA0072FB9A /* Character.swift */,
 				DD1E2FD02A8F5FF30072FB9A /* DetailedCharacter.swift */,
+				DDA7D4502A8F9AC100B906AE /* Origin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				DD1E2FBB2A8E825C0072FB9A /* CharacterListCell.swift in Sources */,
 				DD1E2F962A8D70FD0072FB9A /* ContentView.swift in Sources */,
 				DD1E2FD12A8F5FF30072FB9A /* DetailedCharacter.swift in Sources */,
+				DDA7D4512A8F9AC100B906AE /* Origin.swift in Sources */,
 				DD1E2FC42A8EB6FA0072FB9A /* Character.swift in Sources */,
 				DD1E2FA92A8D80B80072FB9A /* URLManager.swift in Sources */,
 				DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */,

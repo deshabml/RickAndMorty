@@ -95,39 +95,34 @@ extension DetailedCharacterScreenView {
                                  meaning: viewModel.isNotEnpty(text: detailedCharacter.gender))
                     }
                 }
-                section(title: "Origin") {
+                section(title: "Origin", pading: 8) {
                     HStack {
                         Image("Planet")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24, height: 24)
-                            .padding()
-                            .background(Color.green)
+                            .padding(24)
+                            .background(Color.black.opacity(0.4))
                             .cornerRadius(16)
-                        VStack(spacing: 8) {
-                            Text("sdcsdv")
-                                .font(.body)
-                                .bold()
-                            Text("sdcsdc")
+                        if let origin = viewModel.origin {
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text(viewModel.isNotEnpty(text: origin.name))
+                                    .font(.body)
+                                    .bold()
+                                Text(viewModel.isNotEnpty(text: origin.type))
+                                    .font(.body)
+                                    .bold()
+                                    .foregroundColor(.green)
+                            }
+                            .padding(.horizontal, 8)
+                        } else {
+                            ActivityIndicator()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.white)
                         }
-                        .padding(.horizontal, 8)
-
                         Spacer()
                     }
                 }
-//                headerText("Info")
-//                        VStack(spacing: 16) {
-//                            infoCell(title: "Species",
-//                                     meaning: viewModel.isNotEnpty(text: detailedCharacter.species))
-//                            infoCell(title: "Type",
-//                                     meaning: viewModel.isNotEnpty(text: detailedCharacter.type))
-//                            infoCell(title: "Gender",
-//                                     meaning: viewModel.isNotEnpty(text: detailedCharacter.gender))
-//                        }
-//                        .padding()
-//                        .background(Color("BackgroundColor"))
-//                        .cornerRadius(16)
-//                        .padding(.horizontal)
                 Spacer()
             } else {
                 ActivityIndicator()
@@ -160,14 +155,14 @@ extension DetailedCharacterScreenView {
         }
     }
 
-    private func section(title: String, completion:() -> (some View)) -> some View {
+    private func section(title: String, pading: CGFloat = 16,completion:() -> (some View)) -> some View {
         VStack {
             headerText(title)
                 .padding(.vertical)
             VStack {
                 completion()
             }
-            .padding()
+            .padding(pading)
             .background(Color("BackgroundColor"))
             .cornerRadius(16)
             .padding(.horizontal)

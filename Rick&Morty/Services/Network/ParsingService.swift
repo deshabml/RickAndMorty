@@ -43,9 +43,23 @@ class ParsingService {
                                                   species: json["species"].stringValue,
                                                   type: json["type"].stringValue,
                                                   gender: json["gender"].stringValue,
-                                                  originUrl: json["origin"].stringValue,
+                                                  originUrl: json["origin"]["url"].stringValue,
                                                   episodeUrls: episodeUrls)
+        print(json)
         return detailedCharacter
+    }
+
+    func origin(from data: Data) -> Origin? {
+        guard let json = try? JSON(data: data) else { return nil }
+        var episodeUrls: [String] = []
+        for index in 0 ..< json["episode"].count {
+            episodeUrls.append(json["episode"][index].stringValue)
+        }
+        let name = json["name"].stringValue.components(separatedBy: " ").first
+        let origin = Origin(id: json["id"].int ?? 0,
+                            name: name ?? "None",
+                            type: json["type"].stringValue)
+        return origin
     }
 
 }

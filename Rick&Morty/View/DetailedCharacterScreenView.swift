@@ -14,11 +14,11 @@ struct DetailedCharacterScreenView: View {
 
     var body: some View {
         ZStack {
+            detailedCharacter()
             VStack {
                 buttonBack()
                 Spacer()
             }
-            detailedCharacter()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AccentColor"))
@@ -85,44 +85,59 @@ extension DetailedCharacterScreenView {
                     .font(.body)
                     .foregroundColor(viewModel.isAlive ? .green : .red)
                     .bold()
-                section(title: "Info") {
-                    VStack(spacing: 16) {
-                        infoCell(title: "Species",
-                                 meaning: viewModel.isNotEnpty(text: detailedCharacter.species))
-                        infoCell(title: "Type",
-                                 meaning: viewModel.isNotEnpty(text: detailedCharacter.type))
-                        infoCell(title: "Gender",
-                                 meaning: viewModel.isNotEnpty(text: detailedCharacter.gender))
-                    }
-                }
-                section(title: "Origin", pading: 8) {
-                    HStack {
-                        Image("Planet")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                            .padding(24)
-                            .background(Color.black.opacity(0.4))
-                            .cornerRadius(16)
-                        if let origin = viewModel.origin {
-                            VStack(alignment: .leading, spacing: 16) {
-                                Text(viewModel.isNotEnpty(text: origin.name))
-                                    .font(.body)
-                                    .bold()
-                                Text(viewModel.isNotEnpty(text: origin.type))
-                                    .font(.body)
-                                    .bold()
-                                    .foregroundColor(.green)
-                            }
-                            .padding(.horizontal, 8)
-                        } else {
-                            ActivityIndicator()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.white)
+                ScrollView(.vertical, showsIndicators: false) {
+                    section(title: "Info") {
+                        VStack(spacing: 16) {
+                            infoCell(title: "Species",
+                                     meaning: viewModel.isNotEnpty(text: detailedCharacter.species))
+                            infoCell(title: "Type",
+                                     meaning: viewModel.isNotEnpty(text: detailedCharacter.type))
+                            infoCell(title: "Gender",
+                                     meaning: viewModel.isNotEnpty(text: detailedCharacter.gender))
                         }
-                        Spacer()
+                    }
+                    section(title: "Origin", pading: 8) {
+                        HStack {
+                            Image("Planet")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                                .padding(24)
+                                .background(Color.black.opacity(0.4))
+                                .cornerRadius(16)
+                            if let origin = viewModel.origin {
+                                VStack(alignment: .leading, spacing: 16) {
+                                    Text(viewModel.isNotEnpty(text: origin.name))
+                                        .font(.body)
+                                        .bold()
+                                    Text(viewModel.isNotEnpty(text: origin.type))
+                                        .font(.body)
+                                        .bold()
+                                        .foregroundColor(.green)
+                                }
+                                .padding(.horizontal, 8)
+                            } else {
+                                ActivityIndicator()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.white)
+                            }
+                            Spacer()
+                        }
+                    }
+                    section(title: "Episodes") {
+                        VStack {
+                            ForEach(0 ..< detailedCharacter.episodeUrls.count, id: \.self) { item in
+                                Text("\(item)")
+                                    .font(.body)
+                                    .bold()
+                            }
+                        }
                     }
                 }
+                .padding()
+                .listStyle(.plain)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
                 Spacer()
             } else {
                 ActivityIndicator()
@@ -137,7 +152,6 @@ extension DetailedCharacterScreenView {
             Text(text)
                 .font(.body)
                 .bold()
-                .padding(.horizontal)
             Spacer()
         }
     }
@@ -165,7 +179,6 @@ extension DetailedCharacterScreenView {
             .padding(pading)
             .background(Color("BackgroundColor"))
             .cornerRadius(16)
-            .padding(.horizontal)
         }
     }
 

@@ -31,6 +31,7 @@ class DetailedCharacterScreenViewModel: ObservableObject {
                                              name: "None",
                                              type: "None")
                     }
+                    print(detailedCharacter.episodeUrls)
                 }
             case .failure(let error):
                     print(error.localizedDescription)
@@ -57,8 +58,6 @@ class DetailedCharacterScreenViewModel: ObservableObject {
                 case .success(let origin):
                     DispatchQueue.main.async { [unowned self] in
                         self.origin = origin
-                        print(origin.name)
-                        print(origin.type)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)

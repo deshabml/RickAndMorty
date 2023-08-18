@@ -13,14 +13,16 @@ struct DetailedCharacterScreenView: View {
 
     var body: some View {
         VStack {
-            Button {
-                mainViewModel.deleteSelectedCharracter()
-            } label: {
-                Text("Back")
-                    .foregroundColor(.white)
-            }
+            buttonBack()
+            Image(systemName: "person.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 148, height: 148)
+                .cornerRadius(16)
+            Spacer()
             Text("\(mainViewModel.selectedCharracterID ?? 0)")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AccentColor"))
     }
 
@@ -34,6 +36,23 @@ struct DetailedCharacterScreenView_Previews: PreviewProvider {
                 .environmentObject(ContentViewModel())
         }
         .preferredColorScheme(.dark)
+    }
+
+}
+
+extension DetailedCharacterScreenView {
+
+    private func buttonBack() -> some View {
+        HStack {
+            Button {
+                mainViewModel.deleteSelectedCharracter()
+            } label: {
+                Image(systemName: "chevron.backward")
+                    .foregroundColor(.white)
+            }
+            Spacer()
+        }
+        .padding(.horizontal, 20)
     }
 
 }

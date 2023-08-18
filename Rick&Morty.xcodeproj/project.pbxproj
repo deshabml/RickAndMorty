@@ -24,6 +24,7 @@
 		DD1E2FCB2A8EC3FD0072FB9A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E2FCA2A8EC3FD0072FB9A /* SwiftyJSON */; };
 		DD1E2FCD2A8EC4130072FB9A /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FCC2A8EC4130072FB9A /* ParsingService.swift */; };
 		DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */; };
+		DD1E2FD12A8F5FF30072FB9A /* DetailedCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FD02A8F5FF30072FB9A /* DetailedCharacter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		DD1E2FC72A8EB9890072FB9A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DD1E2FCC2A8EC4130072FB9A /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterScreenView.swift; sourceTree = "<group>"; };
+		DD1E2FD02A8F5FF30072FB9A /* DetailedCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1E2FC32A8EB6FA0072FB9A /* Character.swift */,
+				DD1E2FD02A8F5FF30072FB9A /* DetailedCharacter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				DD1E2FBB2A8E825C0072FB9A /* CharacterListCell.swift in Sources */,
 				DD1E2F962A8D70FD0072FB9A /* ContentView.swift in Sources */,
+				DD1E2FD12A8F5FF30072FB9A /* DetailedCharacter.swift in Sources */,
 				DD1E2FC42A8EB6FA0072FB9A /* Character.swift in Sources */,
 				DD1E2FA92A8D80B80072FB9A /* URLManager.swift in Sources */,
 				DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */,

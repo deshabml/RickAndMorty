@@ -27,6 +27,8 @@ class ParsingService {
                                       imageUrl: imageUrl)
             characters.append(character)
         }
+        print(jsons[0])
+
         return characters
     }
 

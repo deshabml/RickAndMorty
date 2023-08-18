@@ -36,7 +36,7 @@ class ParsingService {
         for index in 0 ..< json["episode"].count {
             episodeUrls.append(json["episode"][index].stringValue)
         }
-        var detailedCharacter = DetailedCharacter(id: json["id"].int ?? 0,
+        let detailedCharacter = DetailedCharacter(id: json["id"].int ?? 0,
                                                   name: json["name"].stringValue,
                                                   imageUrl: json["image"].stringValue,
                                                   status: json["status"].stringValue,

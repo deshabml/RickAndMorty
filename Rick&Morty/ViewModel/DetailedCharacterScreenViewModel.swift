@@ -43,4 +43,12 @@ class DetailedCharacterScreenViewModel: ObservableObject {
         }
     }
 
+    func isNotEnpty(text: String) -> String {
+        if text.count == 0 {
+            return "None"
+        } else {
+            return text
+        }
+    }
+
 }

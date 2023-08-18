@@ -17,17 +17,16 @@ struct EpisodeCell: View {
                 VStack(spacing: 16) {
                     HStack {
                         Text(episode.name)
-                            .font(.body)
-                            .bold()
+                            .font(.custom("Gilroy-Semibold", size: CGFloat(17)))
                         Spacer()
                     }
                     HStack {
                         Text(episode.episode)
-                            .font(.custom("AvenirNext", size: CGFloat(13)))
+                            .font(.custom("Gilroy-Regular", size: CGFloat(13)))
                             .foregroundColor(.green)
                         Spacer()
                         Text(episode.air_date)
-                            .font(.custom("AvenirNext", size: CGFloat(13)))
+                            .font(.custom("Gilroy-Regular", size: CGFloat(13)))
                             .foregroundColor(.secondary)
                     }
                 }

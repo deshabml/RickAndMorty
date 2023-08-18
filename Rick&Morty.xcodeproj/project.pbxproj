@@ -32,6 +32,8 @@
 		DDA7D4532A8FB28000B906AE /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7D4522A8FB28000B906AE /* EpisodeCell.swift */; };
 		DDA7D4552A8FB2C500B906AE /* EpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7D4542A8FB2C500B906AE /* EpisodeCellViewModel.swift */; };
 		DDA7D4572A8FB33700B906AE /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7D4562A8FB33700B906AE /* Episode.swift */; };
+		DDA7D45A2A8FBFEC00B906AE /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDA7D4592A8FBFEC00B906AE /* Gilroy-Regular.ttf */; };
+		DDA7D45C2A8FC1F100B906AE /* Gilroy-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDA7D45B2A8FC1F100B906AE /* Gilroy-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		DDA7D4522A8FB28000B906AE /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		DDA7D4542A8FB2C500B906AE /* EpisodeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCellViewModel.swift; sourceTree = "<group>"; };
 		DDA7D4562A8FB33700B906AE /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		DDA7D4592A8FBFEC00B906AE /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
+		DDA7D45B2A8FC1F100B906AE /* Gilroy-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Semibold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		DD1E2FA22A8D732D0072FB9A /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				DDA7D4582A8FBF9900B906AE /* Font */,
 				DD1E2FA32A8D76A90072FB9A /* Rick-Morty-Info.plist */,
 				DD1E2F972A8D70FF0072FB9A /* Assets.xcassets */,
 			);
@@ -235,6 +240,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		DDA7D4582A8FBF9900B906AE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DDA7D45B2A8FC1F100B906AE /* Gilroy-Semibold.ttf */,
+				DDA7D4592A8FBFEC00B906AE /* Gilroy-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,6 +314,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1E2F9B2A8D70FF0072FB9A /* Preview Assets.xcassets in Resources */,
+				DDA7D45C2A8FC1F100B906AE /* Gilroy-Semibold.ttf in Resources */,
+				DDA7D45A2A8FBFEC00B906AE /* Gilroy-Regular.ttf in Resources */,
 				DD1E2F982A8D70FF0072FB9A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

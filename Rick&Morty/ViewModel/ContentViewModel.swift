@@ -9,16 +9,8 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
 
-    @Published var selectedCharracter: Int? = nil
+    @Published var selectedCharracterID: Int? = nil
     var characters: [Character]?
-
-//    init() {
-//        do {
-//            try getCharacter()
-//        } catch {
-//            print("Ошибка загрузки данных")
-//        }
-//    }
 
     func getCharacter(completion: @escaping () -> ()) {
         NetworkService.shared.getCharacter { result in
@@ -32,6 +24,11 @@ class ContentViewModel: ObservableObject {
                     print(error.localizedDescription)
             }
         }
+    }
+
+    func setupSelectedCharracter(_ selectedCharracterID: Int) {
+        self.selectedCharracterID = selectedCharracterID
+        print(selectedCharracterID)
     }
 
 

@@ -14,6 +14,7 @@ class CharacterListCell: UICollectionViewCell {
     private lazy var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
         avatarImageView.layer.cornerRadius = 16
+        avatarImageView.clipsToBounds = true
         avatarImageView.isHidden = true
         return avatarImageView
     }()
@@ -24,6 +25,8 @@ class CharacterListCell: UICollectionViewCell {
         activityIndicator.startAnimating()
         return activityIndicator
     }()
+
+    private lazy var bacgraundLabel = UIView()
 
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -46,21 +49,27 @@ class CharacterListCell: UICollectionViewCell {
     }
 
     func setConstraints() {
-        addSubview(nameLabel)
+        addSubview(bacgraundLabel)
+        bacgraundLabel.addSubview(nameLabel)
         addSubview(avatarImageView)
         addSubview(activityIndicator)
+        bacgraundLabel.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
-            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 140),
             avatarImageView.widthAnchor.constraint(equalToConstant: 140),
-            nameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 4),
-            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bacgraundLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            bacgraundLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            bacgraundLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            bacgraundLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            nameLabel.centerXAnchor.constraint(equalTo: bacgraundLabel.centerXAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: bacgraundLabel.centerYAnchor),
             nameLabel.widthAnchor.constraint(equalToConstant: 140)
         ])
     }
@@ -76,7 +85,6 @@ class CharacterListCell: UICollectionViewCell {
                 case .success(let getImage):
                     DispatchQueue.main.async {
                         self.avatarImageView.image = getImage
-                        self.avatarImageView.layer.cornerRadius = 16
                         self.activityIndicator.startAnimating()
                         self.activityIndicator.isHidden = true
                         self.avatarImageView.isHidden = false

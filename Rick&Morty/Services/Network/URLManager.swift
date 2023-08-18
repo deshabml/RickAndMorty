@@ -16,15 +16,7 @@ class URLManager {
     private init() { }
 
     func createUrl(endpoint: EndPoint) -> URL? {
-//        guard endpoints.count >= ids.count else { return nil }
         let urlStr = tunnel + server.rawValue + endpoint.rawValue
-//        for (index, endpoint) in endpoints.enumerated() {
-//            if index < ids.count {
-//                urlStr += "\(endpoint.rawValue)/\(ids[index])"
-//            } else {
-//                urlStr += endpoint.rawValue
-//            }
-//        }
         print(urlStr)
         return URL(string: urlStr)
     }

@@ -13,7 +13,7 @@ class CharacterListScreenViewController: UIViewController {
 
     private var characters: [Character] = []
 
-    var mainViewModel: ContentViewModel?
+    private var mainViewModel: ContentViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class CharacterListScreenViewController: UIViewController {
     }
 
     func getCharacter() {
-        mainViewModel?.getCharacter(completion: { [unowned self] in
+        mainViewModel.getCharacter(completion: { [unowned self] in
             self.characters = mainViewModel?.characters ?? []
             self.mainView.collectionView.reloadData()
             self.mainView.activityIndicator.stopAnimating()
@@ -58,7 +58,7 @@ extension CharacterListScreenViewController: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("Pararam")
+        mainViewModel?.setupSelectedCharracter(characters[indexPath.row].id)
     }
 
 }

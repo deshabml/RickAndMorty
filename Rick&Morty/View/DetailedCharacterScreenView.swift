@@ -78,11 +78,11 @@ extension DetailedCharacterScreenView {
                 imageCharacter()
                     .padding(.vertical, 16)
                 Text(detailedCharacter.name)
-                    .font(.title)
+                    .font(.custom("Gilroy-Semibold", size: CGFloat(22)))
                     .bold()
                     .padding(4)
                 Text(detailedCharacter.status)
-                    .font(.body)
+                    .font(.custom("Gilroy-Regular", size: CGFloat(16)))
                     .foregroundColor(viewModel.isAlive ? .green : .red)
                     .bold()
                 ScrollView(.vertical, showsIndicators: false) {
@@ -108,10 +108,10 @@ extension DetailedCharacterScreenView {
                             if let origin = viewModel.origin {
                                 VStack(alignment: .leading, spacing: 16) {
                                     Text(viewModel.isNotEnpty(text: origin.name))
-                                        .font(.body)
+                                        .font(.custom("Gilroy-Regular", size: CGFloat(13)))
                                         .bold()
                                     Text(viewModel.isNotEnpty(text: origin.type))
-                                        .font(.body)
+                                        .font(.custom("Gilroy-Regular", size: CGFloat(13)))
                                         .bold()
                                         .foregroundColor(.green)
                                 }
@@ -153,7 +153,7 @@ extension DetailedCharacterScreenView {
     private func headerText(_ text: String) -> some View {
         HStack {
             Text(text)
-                .font(.body)
+                .font(.custom("Gilroy-Regular", size: CGFloat(17)))
                 .bold()
             Spacer()
         }
@@ -162,12 +162,12 @@ extension DetailedCharacterScreenView {
     private func infoCell(title: String, meaning: String) -> some View {
         HStack {
             Text(title)
-                .font(.body)
+                .font(.custom("Gilroy-Regular", size: CGFloat(16)))
                 .foregroundColor(.secondary)
                 .bold()
             Spacer()
             Text(meaning)
-                .font(.body)
+                .font(.custom("Gilroy-Regular", size: CGFloat(16)))
                 .bold()
         }
     }

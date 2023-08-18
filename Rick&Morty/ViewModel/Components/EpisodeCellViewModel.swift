@@ -9,11 +9,9 @@ import Foundation
 
 class EpisodeCellViewModel: ObservableObject {
 
-//    let url: String
     @Published var episode: Episode?
 
     init(url: String) {
-//        self.url = url
         getEpisode(urlString: url)
     }
 
@@ -29,6 +27,5 @@ class EpisodeCellViewModel: ObservableObject {
             }
         }
     }
-
 
 }

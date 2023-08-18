@@ -12,7 +12,7 @@ class CharacterListView: UIView {
     private lazy var label: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "Characters"
-        label.font = UIFont.boldSystemFont(ofSize: 28.0)
+        label.font = UIFont(name: "Gilroy-Semibold", size: 28)
         label.textColor = .white
         return label
     }()

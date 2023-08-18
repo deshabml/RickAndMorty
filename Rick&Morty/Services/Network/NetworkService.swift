@@ -13,6 +13,30 @@ class NetworkService {
 
     private init() { }
 
+    func getCharacter(completion: @escaping (Result<[Character], Error>) -> ()) {
+        guard let url = URLManager.shared.createUrl(endpoint: .character) else {
+            completion(.failure(NetworkError.badUrl))
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+//            let decoder = JSONDecoder()
+            guard let characters = ParsingService.shared.characters(from: data) else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+                completion(.success(characters))
+        }
+        task.resume()
+    }
+
 //    func getPosts(completion: @escaping (Result<[Post], Error>) -> ()) {
 //        guard let url = URLManager.shared.createUrl(endpoints: [.posts], ids: []) else {
 //            completion(.failure(NetworkError.badUrl))

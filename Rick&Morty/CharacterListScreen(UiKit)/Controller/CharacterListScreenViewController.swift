@@ -18,6 +18,11 @@ class CharacterListScreenViewController: UIViewController {
         view = mainView
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
+        mainView.collectionView.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.mainView.collectionView.reloadData()
+            self.mainView.collectionView.isHidden = false
+        }
     }
 
     func setupVC(_ mainViewModel: ContentViewModel) {
@@ -33,12 +38,14 @@ class CharacterListScreenViewController: UIViewController {
 extension CharacterListScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return mainViewModel?.characters?.count ?? 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterListCell.reuseID, for: indexPath) as! CharacterListCell
-//        cell.nameLabel.text = contacts[indexPath.item].name
+        if let characters = mainViewModel?.characters {
+            cell.setupCell(name: characters[indexPath.row].name)
+        }
         return cell
     }
 

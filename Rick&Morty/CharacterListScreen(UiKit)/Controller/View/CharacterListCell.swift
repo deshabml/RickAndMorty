@@ -21,6 +21,8 @@ class CharacterListCell: UICollectionViewCell {
         let nameLabel = UILabel()
         nameLabel.text = "Имя Фамилия"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        nameLabel.textAlignment = .center
+        nameLabel.numberOfLines = 0
         return nameLabel
     }()
 
@@ -45,9 +47,14 @@ class CharacterListCell: UICollectionViewCell {
             avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 140),
             avatarImageView.widthAnchor.constraint(equalToConstant: 140),
-            nameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 4),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameLabel.widthAnchor.constraint(equalToConstant: 140)
         ])
+    }
+
+    func setupCell(name: String) {
+        nameLabel.text = name
     }
     
 }

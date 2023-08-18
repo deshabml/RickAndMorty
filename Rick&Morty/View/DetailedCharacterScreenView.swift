@@ -15,16 +15,31 @@ struct DetailedCharacterScreenView: View {
     var body: some View {
         VStack {
             buttonBack()
-            Image(systemName: "person.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 148, height: 148)
-                .cornerRadius(16)
+            if let image = viewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 148, height: 148)
+                    .cornerRadius(16)
+            } else {
+                ActivityIndicator()
+                    .frame(width: 148, height: 148)
+                    .foregroundColor(.white)
+            }
+            if let detailedCharacter = viewModel.detailedCharacter {
+                Text(detailedCharacter.name)
+                    .font(.title)
+                    .bold()
+                    .padding()
+            }
             Spacer()
             Text("\(mainViewModel.selectedCharracterID ?? 0)")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AccentColor"))
+        .onAppear {
+            viewModel.getDetailedCharacter(mainViewModel.selectedCharracterID ?? 1)
+        }
     }
 
 }

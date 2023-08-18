@@ -12,11 +12,18 @@ struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
 
     var body: some View {
-        NavigationView {
-            CharacterListScreenView()
-                .environmentObject(viewModel)
+        VStack {
+            if let _ = viewModel.selectedCharracterID {
+                DetailedCharacterScreenView()
+                    .environmentObject(viewModel)
+            } else {
+                CharacterListScreenView()
+                    .environmentObject(viewModel)
+            }
         }
         .preferredColorScheme(.dark)
+        .animation(.easeInOut,
+                   value: viewModel.selectedCharracterID)
     }
     
 }

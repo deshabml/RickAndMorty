@@ -31,5 +31,8 @@ class ContentViewModel: ObservableObject {
         print(selectedCharracterID)
     }
 
+    func deleteSelectedCharracter() {
+        selectedCharracterID = nil
+    }
 
 }

@@ -23,6 +23,7 @@
 		DD1E2FC82A8EB9890072FB9A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FC72A8EB9890072FB9A /* NetworkError.swift */; };
 		DD1E2FCB2A8EC3FD0072FB9A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DD1E2FCA2A8EC3FD0072FB9A /* SwiftyJSON */; };
 		DD1E2FCD2A8EC4130072FB9A /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FCC2A8EC4130072FB9A /* ParsingService.swift */; };
+		DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		DD1E2FC32A8EB6FA0072FB9A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		DD1E2FC72A8EB9890072FB9A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DD1E2FCC2A8EC4130072FB9A /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
+		DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				DD1E2F952A8D70FD0072FB9A /* ContentView.swift */,
 				DD1E2FBE2A8E91B10072FB9A /* CharacterListScreenView.swift */,
+				DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				DD1E2F962A8D70FD0072FB9A /* ContentView.swift in Sources */,
 				DD1E2FC42A8EB6FA0072FB9A /* Character.swift in Sources */,
 				DD1E2FA92A8D80B80072FB9A /* URLManager.swift in Sources */,
+				DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */,
 				DD1E2FA72A8D80530072FB9A /* NetworkService.swift in Sources */,
 				DD1E2FBF2A8E91B10072FB9A /* CharacterListScreenView.swift in Sources */,
 				DD1E2FB62A8E7A700072FB9A /* CharacterListScreenUIViewControllerRepresentable.swift in Sources */,

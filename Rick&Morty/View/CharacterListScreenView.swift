@@ -26,14 +26,11 @@ struct CharacterListScreenView: View {
 struct CharacterListScreenView_Previews: PreviewProvider {
 
     static var previews: some View {
-        NavigationView {
             VStack {
                 CharacterListScreenView()
                     .environmentObject(ContentViewModel())
             }
-            .background(Color("AccentColor"))
-        }
-        .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
     }
     
 }

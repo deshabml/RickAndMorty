@@ -34,6 +34,7 @@ class CharacterListView: UIView {
         collectionView.register(CharacterListCell.self, forCellWithReuseIdentifier: CharacterListCell.reuseID)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.isHidden = true
+        collectionView.backgroundColor = UIColor(named: "AccentColor")
         return collectionView
     }()
 

@@ -27,9 +27,25 @@ class ParsingService {
                                       imageUrl: imageUrl)
             characters.append(character)
         }
-        print(jsons[0])
-
         return characters
+    }
+
+    func detailedCharacter(from data: Data) -> DetailedCharacter? {
+        guard let json = try? JSON(data: data) else { return nil }
+        var episodeUrls: [String] = []
+        for index in 0 ..< json["episode"].count {
+            episodeUrls.append(json["episode"][index].stringValue)
+        }
+        var detailedCharacter = DetailedCharacter(id: json["id"].int ?? 0,
+                                                  name: json["name"].stringValue,
+                                                  imageUrl: json["image"].stringValue,
+                                                  status: json["status"].stringValue,
+                                                  species: json["species"].stringValue,
+                                                  type: json["type"].stringValue,
+                                                  gender: json["gender"].stringValue,
+                                                  originUrl: json["origin"].stringValue,
+                                                  episodeUrls: episodeUrls)
+        return detailedCharacter
     }
 
 }

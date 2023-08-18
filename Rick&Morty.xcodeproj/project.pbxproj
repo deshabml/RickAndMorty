@@ -25,6 +25,7 @@
 		DD1E2FCD2A8EC4130072FB9A /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FCC2A8EC4130072FB9A /* ParsingService.swift */; };
 		DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */; };
 		DD1E2FD12A8F5FF30072FB9A /* DetailedCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FD02A8F5FF30072FB9A /* DetailedCharacter.swift */; };
+		DD1E2FD32A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E2FD22A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		DD1E2FCC2A8EC4130072FB9A /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		DD1E2FCE2A8F58570072FB9A /* DetailedCharacterScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterScreenView.swift; sourceTree = "<group>"; };
 		DD1E2FD02A8F5FF30072FB9A /* DetailedCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacter.swift; sourceTree = "<group>"; };
+		DD1E2FD22A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCharacterScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1E2FB32A8E79280072FB9A /* ContentViewModel.swift */,
+				DD1E2FD22A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				DD1E2FC42A8EB6FA0072FB9A /* Character.swift in Sources */,
 				DD1E2FA92A8D80B80072FB9A /* URLManager.swift in Sources */,
 				DD1E2FCF2A8F58570072FB9A /* DetailedCharacterScreenView.swift in Sources */,
+				DD1E2FD32A8F66CD0072FB9A /* DetailedCharacterScreenViewModel.swift in Sources */,
 				DD1E2FA72A8D80530072FB9A /* NetworkService.swift in Sources */,
 				DD1E2FBF2A8E91B10072FB9A /* CharacterListScreenView.swift in Sources */,
 				DD1E2FB62A8E7A700072FB9A /* CharacterListScreenUIViewControllerRepresentable.swift in Sources */,

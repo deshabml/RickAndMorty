@@ -18,5 +18,5 @@ struct DetailedCharacter: Identifiable, Decodable {
     let gender: String
     let originUrl: String
     let episodeUrls: [String]
-    
+
 }

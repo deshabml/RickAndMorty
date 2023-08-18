@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailedCharacterScreenView: View {
 
     @EnvironmentObject private var mainViewModel: ContentViewModel
+    @StateObject private var viewModel = DetailedCharacterScreenViewModel()
 
     var body: some View {
         VStack {

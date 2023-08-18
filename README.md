@@ -4,7 +4,7 @@
 
 https://www.figma.com/file/JUuVDTfYCwDeuY1EsR76qH/Untitled?type=design&node-id=0%3A1&mode=design&t=BauCEhk5b3S1ckXO-1
 
-- Приложение реализовано на SviftUI, архитектура MVVM.
+- Приложение реализовано на SwiftUI, архитектура MVVM.
 - Экран списка персонажей - реализован, используя UIKit.
 - На все экранах и элементах во время загрузки данных отображается лоадер.
 - Используется не стандартный шрифт "Gilroy" как в макете figma

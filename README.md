@@ -19,4 +19,4 @@ https://www.figma.com/file/JUuVDTfYCwDeuY1EsR76qH/Untitled?type=design&node-id=0
 
 <div align="center">
 
-  ![xx](https://github.com/deshabml/KitchenConverter/blob/main/GIFImage.gif?w=450)
+  ![xx](https://github.com/deshabml/RickAndMorty/blob/main/GIFImage.gif?w=450)

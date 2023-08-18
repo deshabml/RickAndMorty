@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DetailedCharacterScreenView: View {
-
+    
     @EnvironmentObject private var mainViewModel: ContentViewModel
     @StateObject private var viewModel = DetailedCharacterScreenViewModel()
-
+    
     var body: some View {
         ZStack {
             detailedCharacter()
@@ -26,11 +26,11 @@ struct DetailedCharacterScreenView: View {
             viewModel.getDetailedCharacter(mainViewModel.selectedCharracterID ?? 1)
         }
     }
-
+    
 }
 
 struct DetailedCharacterScreenView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         VStack {
             DetailedCharacterScreenView()
@@ -38,11 +38,11 @@ struct DetailedCharacterScreenView_Previews: PreviewProvider {
         }
         .preferredColorScheme(.dark)
     }
-
+    
 }
 
 extension DetailedCharacterScreenView {
-
+    
     private func buttonBack() -> some View {
         HStack {
             Button {
@@ -55,7 +55,7 @@ extension DetailedCharacterScreenView {
         }
         .padding(.horizontal, 20)
     }
-
+    
     private func imageCharacter() -> some View {
         VStack {
             if let image = viewModel.image {
@@ -71,7 +71,7 @@ extension DetailedCharacterScreenView {
             }
         }
     }
-
+    
     private func detailedCharacter() -> some View {
         VStack {
             if let detailedCharacter = viewModel.detailedCharacter {
@@ -124,12 +124,15 @@ extension DetailedCharacterScreenView {
                             Spacer()
                         }
                     }
-                    section(title: "Episodes") {
+                    VStack {
+                        headerText("Episodes")
+                            .padding(.vertical)
                         VStack {
                             ForEach(0 ..< detailedCharacter.episodeUrls.count, id: \.self) { item in
-                                Text("\(item)")
-                                    .font(.body)
-                                    .bold()
+                                EpisodeCell(viewModel: EpisodeCellViewModel(url: detailedCharacter.episodeUrls[item]))
+                                    .padding()
+                                    .background(Color("BackgroundColor"))
+                                    .cornerRadius(16)
                             }
                         }
                     }
@@ -146,7 +149,7 @@ extension DetailedCharacterScreenView {
             }
         }
     }
-
+    
     private func headerText(_ text: String) -> some View {
         HStack {
             Text(text)
@@ -155,7 +158,7 @@ extension DetailedCharacterScreenView {
             Spacer()
         }
     }
-
+    
     private func infoCell(title: String, meaning: String) -> some View {
         HStack {
             Text(title)
@@ -168,7 +171,7 @@ extension DetailedCharacterScreenView {
                 .bold()
         }
     }
-
+    
     private func section(title: String, pading: CGFloat = 16,completion:() -> (some View)) -> some View {
         VStack {
             headerText(title)
@@ -181,5 +184,5 @@ extension DetailedCharacterScreenView {
             .cornerRadius(16)
         }
     }
-
+    
 }

@@ -83,6 +83,29 @@ class NetworkService {
         task.resume()
     }
 
+    func getEpisode(urlString: String, completion: @escaping (Result<Episode, Error>) -> ()) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.badUrl))
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+            guard let episode = ParsingService.shared.episode(from: data) else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+                completion(.success(episode))
+        }
+        task.resume()
+    }
+
     func downloadImage(urlString: String, completion: @escaping (Result<UIImage, Error>) -> ()) {
         guard let url = URL(string: urlString) else {
             completion(.failure(NetworkError.badUrl))

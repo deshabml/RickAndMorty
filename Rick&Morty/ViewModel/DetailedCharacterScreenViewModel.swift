@@ -31,7 +31,6 @@ class DetailedCharacterScreenViewModel: ObservableObject {
                                              name: "None",
                                              type: "None")
                     }
-                    print(detailedCharacter.episodeUrls)
                 }
             case .failure(let error):
                     print(error.localizedDescription)

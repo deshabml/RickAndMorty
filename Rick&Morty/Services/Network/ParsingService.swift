@@ -45,7 +45,6 @@ class ParsingService {
                                                   gender: json["gender"].stringValue,
                                                   originUrl: json["origin"]["url"].stringValue,
                                                   episodeUrls: episodeUrls)
-        print(json)
         return detailedCharacter
     }
 
@@ -60,6 +59,20 @@ class ParsingService {
                             name: name ?? "None",
                             type: json["type"].stringValue)
         return origin
+    }
+
+    func episode(from data: Data) -> Episode? {
+        guard let json = try? JSON(data: data) else { return nil }
+        let episodeString = json["episode"].stringValue
+        let seasonNumber = "\(Array(episodeString)[2])"
+        let episodeNumberTwo = "\(Array(episodeString)[4])" + "\(Array(episodeString)[5])"
+        let episodeNumberOne = "\(Int(episodeNumberTwo) ?? 0)"
+        let itogString = "Episode: \(episodeNumberOne), Season: \(seasonNumber)"
+        let episode = Episode(id: json["id"].int ?? 0,
+                              name: json["name"].stringValue,
+                              episode: itogString,
+                              air_date: json["air_date"].stringValue)
+        return episode
     }
 
 }

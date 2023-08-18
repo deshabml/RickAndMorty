@@ -20,7 +20,6 @@ class URLManager {
         if let id {
             urlStr += "/\(id)"
         }
-        print(urlStr)
         return URL(string: urlStr)
     }
 

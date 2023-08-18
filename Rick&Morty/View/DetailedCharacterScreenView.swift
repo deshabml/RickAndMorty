@@ -15,25 +15,8 @@ struct DetailedCharacterScreenView: View {
     var body: some View {
         VStack {
             buttonBack()
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 148, height: 148)
-                    .cornerRadius(16)
-            } else {
-                ActivityIndicator()
-                    .frame(width: 148, height: 148)
-                    .foregroundColor(.white)
-            }
-            if let detailedCharacter = viewModel.detailedCharacter {
-                Text(detailedCharacter.name)
-                    .font(.title)
-                    .bold()
-                    .padding()
-            }
+            detailedCharacter()
             Spacer()
-            Text("\(mainViewModel.selectedCharracterID ?? 0)")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AccentColor"))
@@ -69,6 +52,52 @@ extension DetailedCharacterScreenView {
             Spacer()
         }
         .padding(.horizontal, 20)
+    }
+
+    private func imageCharacter() -> some View {
+        VStack {
+            if let image = viewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 148, height: 148)
+                    .cornerRadius(16)
+            } else {
+                ActivityIndicator()
+                    .frame(width: 148, height: 148)
+                    .foregroundColor(.white)
+            }
+        }
+    }
+
+    private func detailedCharacter() -> some View {
+        VStack {
+            if let detailedCharacter = viewModel.detailedCharacter {
+                imageCharacter()
+                    .padding(.vertical, 16)
+                Text(detailedCharacter.name)
+                    .font(.title)
+                    .bold()
+                    .padding(4)
+                Text(detailedCharacter.status)
+                    .font(.body)
+                    .foregroundColor(viewModel.isAlive ? .green : .red)
+                    .bold()
+                List {
+                    Section("info") {
+                        Text("123")
+                        .background(.white.opacity(0.8))
+                        .listRowBackground(Color.clear)
+                    }
+                }
+                .listStyle(.plain)
+                .listRowBackground(Color.clear)
+            } else {
+                ActivityIndicator()
+                    .frame(width: 200, height: 200)
+                    .foregroundColor(.white)
+            }
+        }
     }
 
 }

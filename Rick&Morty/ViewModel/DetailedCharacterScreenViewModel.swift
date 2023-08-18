@@ -12,6 +12,9 @@ class DetailedCharacterScreenViewModel: ObservableObject {
 
     @Published var detailedCharacter: DetailedCharacter?
     @Published var image: UIImage?
+    var isAlive: Bool {
+        detailedCharacter?.status == "Alive"
+    }
 
     func getDetailedCharacter(_ id: Int) {
         NetworkService.shared.getDetailedCharacter(id) { result in

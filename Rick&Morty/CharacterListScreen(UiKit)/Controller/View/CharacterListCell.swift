@@ -31,7 +31,7 @@ class CharacterListCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Имя Фамилия"
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        nameLabel.font = UIFont(name: "Gilroy-Semibold", size: 17)
         nameLabel.textAlignment = .center
         nameLabel.numberOfLines = 0
         return nameLabel

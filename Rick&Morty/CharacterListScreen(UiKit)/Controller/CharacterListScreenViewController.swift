@@ -37,10 +37,6 @@ class CharacterListScreenViewController: UIViewController {
         })
     }
 
-    deinit {
-        print("Deeleted")
-    }
-
 }
 
 extension CharacterListScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {

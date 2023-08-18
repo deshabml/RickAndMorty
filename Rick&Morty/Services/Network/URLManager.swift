@@ -15,9 +15,11 @@ class URLManager {
 
     private init() { }
 
-    func createUrl(endpoint: EndPoint) -> URL? {
-        let urlStr = tunnel + server.rawValue + endpoint.rawValue
-        print(urlStr)
+    func createUrl(endpoint: EndPoint,_ id: Int? = nil) -> URL? {
+        var urlStr = tunnel + server.rawValue + endpoint.rawValue
+        if let id {
+            urlStr += "/\(id)"
+        }
         return URL(string: urlStr)
     }
 
@@ -26,9 +28,14 @@ class URLManager {
 
 
 enum Server: String {
+
     case prod = "rickandmortyapi.com/api"
+    
 }
 
 enum EndPoint: String {
+
     case character = "/character"
+    case location = "/location"
+
 }

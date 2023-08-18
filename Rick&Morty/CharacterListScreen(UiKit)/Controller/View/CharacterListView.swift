@@ -17,6 +17,14 @@ class CharacterListView: UIView {
         return label
     }()
 
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = .white
+        activityIndicator.startAnimating()
+        activityIndicator.transform = CGAffineTransformMakeScale(5, 5)
+        return activityIndicator
+    }()
+
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -25,6 +33,7 @@ class CharacterListView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CharacterListCell.self, forCellWithReuseIdentifier: CharacterListCell.reuseID)
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.isHidden = true
         return collectionView
     }()
 
@@ -45,9 +54,13 @@ class CharacterListView: UIView {
     func setConstraints() {
         addSubview(collectionView)
         addSubview(label)
+        addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
             label.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 32),
             label.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             collectionView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 32),

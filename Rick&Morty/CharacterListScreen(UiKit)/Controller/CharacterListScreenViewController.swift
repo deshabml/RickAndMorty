@@ -11,6 +11,8 @@ class CharacterListScreenViewController: UIViewController {
 
     private let mainView = CharacterListView()
 
+    private var characters: [Character] = []
+
     var mainViewModel: ContentViewModel?
 
     override func viewDidLoad() {
@@ -18,15 +20,21 @@ class CharacterListScreenViewController: UIViewController {
         view = mainView
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
-        mainView.collectionView.isHidden = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.mainView.collectionView.reloadData()
-            self.mainView.collectionView.isHidden = false
-        }
+        getCharacter()
     }
 
     func setupVC(_ mainViewModel: ContentViewModel) {
         self.mainViewModel = mainViewModel
+    }
+
+    func getCharacter() {
+        mainViewModel?.getCharacter(completion: { [unowned self] in
+            self.characters = mainViewModel?.characters ?? []
+            self.mainView.collectionView.reloadData()
+            self.mainView.activityIndicator.stopAnimating()
+            self.mainView.activityIndicator.isHidden = true
+            self.mainView.collectionView.isHidden = false
+        })
     }
 
     deinit {
@@ -38,14 +46,12 @@ class CharacterListScreenViewController: UIViewController {
 extension CharacterListScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mainViewModel?.characters?.count ?? 5
+        return characters.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterListCell.reuseID, for: indexPath) as! CharacterListCell
-        if let characters = mainViewModel?.characters {
-            cell.setupCell(name: characters[indexPath.row].name)
-        }
+        cell.setupCell(characters[indexPath.row])
         return cell
     }
 

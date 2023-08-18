@@ -11,13 +11,21 @@ class CharacterListCell: UICollectionViewCell {
 
     static let reuseID = "CharacterListCell"
 
-    lazy var avatarImageView: UIImageView = {
-        let avatarImageView = UIImageView(image: UIImage(systemName: "person.fill"))
+    private lazy var avatarImageView: UIImageView = {
+        let avatarImageView = UIImageView()
         avatarImageView.layer.cornerRadius = 16
+        avatarImageView.isHidden = true
         return avatarImageView
     }()
 
-    let nameLabel: UILabel = {
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = .white
+        activityIndicator.startAnimating()
+        return activityIndicator
+    }()
+
+    private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Имя Фамилия"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
@@ -40,9 +48,13 @@ class CharacterListCell: UICollectionViewCell {
     func setConstraints() {
         addSubview(nameLabel)
         addSubview(avatarImageView)
+        addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
             avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 140),
@@ -53,8 +65,26 @@ class CharacterListCell: UICollectionViewCell {
         ])
     }
 
-    func setupCell(name: String) {
-        nameLabel.text = name
+    func setupCell(_ character: Character) {
+        nameLabel.text = character.name
+        downloadImage(urlString: character.imageUrl)
+    }
+
+    func downloadImage(urlString: String) {
+        NetworkService.shared.downloadImage(urlString: urlString) { result in
+            switch result {
+                case .success(let getImage):
+                    DispatchQueue.main.async {
+                        self.avatarImageView.image = getImage
+                        self.avatarImageView.layer.cornerRadius = 16
+                        self.activityIndicator.startAnimating()
+                        self.activityIndicator.isHidden = true
+                        self.avatarImageView.isHidden = false
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
     
 }

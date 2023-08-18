@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkService {
 
@@ -25,7 +26,6 @@ class NetworkService {
                 }
                 return
             }
-//            let decoder = JSONDecoder()
             guard let characters = ParsingService.shared.characters(from: data) else {
                 if let error {
                     completion(.failure(error))
@@ -36,6 +36,30 @@ class NetworkService {
         }
         task.resume()
     }
+
+    func downloadImage(urlString: String, completion: @escaping (Result<UIImage, Error>) -> ()) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.badUrl))
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+            guard let image = UIImage(data: data) else {
+                if let error {
+                    completion(.failure(error))
+                }
+                return
+            }
+                completion(.success(image))
+        }
+        task.resume()
+    }
+
 
 //    func getPosts(completion: @escaping (Result<[Post], Error>) -> ()) {
 //        guard let url = URLManager.shared.createUrl(endpoints: [.posts], ids: []) else {
